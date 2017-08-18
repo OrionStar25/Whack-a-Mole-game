@@ -24,5 +24,16 @@ function peep()
 {
 	const time = randomTime(200,1000);
 	const hole = randomHole(holes);
-	// console.log(time,hole);
+	hole.classList.add('up');
+	// setTimeOut(hole.classList.remove('up'),time); //change this
 }
+
+function startGame()
+{	
+	till time < 10 sec
+	peep();
+}
+
+$(document).ready(function() {
+	startGame();
+});
