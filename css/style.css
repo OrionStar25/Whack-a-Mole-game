@@ -1,0 +1,23 @@
+body {
+	background-color: #fa9e10;
+}
+h1 {
+	font-family: Folks;
+  	src: url('http://www.vtxfactory.com/Folks-Normal.ttf') format('truetype');
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+img {
+	padding-bottom: 20px;
+	width: 200px;
+	height: 120px;
+}
+.hole {
+
+	position:relative;
+	display: inline-block;
+	float:left;
+	padding:50px;
+	margin-left: 5%;
+}
