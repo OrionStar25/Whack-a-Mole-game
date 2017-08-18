@@ -1,10 +1,9 @@
 const holes = $('.hole');
 const scoreBoard = $('.score');
-const moles = $('.mole');
+const moles = document.querySelectorAll('.mole');
 let lastHole;
-var score;
-var duration;
-var points;
+var score = 0;
+var timeUp = false;
 
 function randomTime(min, max) {
 	return Math.floor(Math.random() * (max - min) + min);
@@ -18,6 +17,7 @@ function randomHoles(holes) {
 	{
 		randomHoles(holes);
 	}
+
 	lastHole = hole;
 	return hole;
 }
@@ -27,36 +27,32 @@ function peep() {
 	var time = randomTime(200, 900);
 	hole.classList.add('up');	
 
-	$('.mole').click(function() {
-		score++;
-		points = score;
-		scoreBoard.text(score);
-	});
-
-	setTimeout(function() {
-		hole.classList.remove('up');
-	},time);
-}
-
-function boink() {
-
+	var lol = setTimeout(() => {
+      hole.classList.remove('up');
+      if (!timeUp) 
+      	peep();
+      else
+      {
+      		clearInterval(lol);
+      		alert("Your score is " + score);
+      }	
+    }, time);
 }
 
 function startGame() {
 	score = 0;
-	duration = 0;
+	timeUp = false;
 	scoreBoard.text('0');
-	var lol = setInterval(function(){ 
-		if(duration < 12)
-		{
-			peep();
-			duration += 1;
-		}
-		else
-		{
-			clearInterval(lol);
-			alert("You got " + points + " points!");
-		}
-	}, 1000);
+	peep();
+    setTimeout(() => timeUp = true, 10000)
 }
+
+function bonk(e) {
+    if(!e.isTrusted) return; // cheater!
+    score++;
+    this.parentNode.classList.remove('up');
+    scoreBoard.text(score);
+  }
+  moles.forEach(mole => mole.addEventListener('click', bonk));
+
 
