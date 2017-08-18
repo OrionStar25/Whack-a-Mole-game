@@ -1,35 +1,57 @@
 body {
 	background-color: #fa9e10;
+	font-size: 30px;
 }
+
 h1 {
-	font-family: Folks;
-  	/*src: url('http://www.vtxfactory.com/Folks-Normal.ttf') format('truetype'); */
 	text-align: center;
-	padding-top: 50px;
+	font-size: 50px;
 }
-img {
-	padding-bottom: 20px;
-	width: 200px;
-	height: 120px;
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
+
+.game {
+  width:600px;
+  height:400px;
+  display:flex;
+  flex-wrap:wrap;
+  margin:0 auto;
+}
+
+.score {
+	color: red;
+}
+
 .hole {
-	position:relative;
-	display: inline-block;
-	float:left;
-	padding:50px;
-	margin-left: 5%;
+  flex: 1 0 33.33%;
+  overflow: hidden;
+  position: relative;
+}
+
+.hole:after {
+  display: block;
+  background: url('../img/hill.png') bottom center no-repeat;
+  background-size:contain;
+  content:'';
+  width: 100%;
+  height:80px;
+  position: absolute;
+  z-index: 2;
+  bottom:-30px;
 }
 
 .mole {
-	position: absolute;
-	top: 1%;
-	width: 100%;
-	height: 80%;
-	transition: all 0.4s;
+  background:url('../img/mole.png') bottom center no-repeat;
+  background-size:60%;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  transition:all 0.4s;
 }
 
 .hole.up .mole {
-	background: url('../img/mole.png') bottom center no-repeat;
-	background-size: 30%;
-	top: 0;
+  top:0;
 }
