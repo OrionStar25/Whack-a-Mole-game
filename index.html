@@ -34,7 +34,11 @@
   <body>
   	<div class="container">
   		<h1><strong>WHACK - A - MOLE! </strong><span class="score">0</span></h1>
-  		<button onclick="startGame()">PLAY</button>
+      <audio id="sound1" src="audio.mp3" preload="auto"></audio>
+  		<button onclick="startGame()">PLAY</button> 
+      
+      <!-- <button onclick="document.getElementById('sound1').play();">Play -->
+      <!-- it</button>` -->
 
   		<div class="game">
   			<div class="hole hole1">
