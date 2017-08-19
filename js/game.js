@@ -50,6 +50,7 @@ function startGame() {
 function bonk(e) {
     if(!e.isTrusted) return; // cheater!
     score++;
+    document.getElementById('sound1').play();
     this.parentNode.classList.remove('up');
     scoreBoard.text(score);
   }
